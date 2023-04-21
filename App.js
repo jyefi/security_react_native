@@ -1,12 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Camara from './screens/Camara';
+import Audio from './screens/Audio';
+import Movil from './screens/Movil';
+import Welcome from './screens/welcome';
+import Contactos from './screens/Contactos';
+
+const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="WelcomeScreen">
+            <Stack.Screen name="Welcome" options={{ headerShown: false }} component={Welcome}  />
+            <Stack.Screen name="Audio" component={Audio} />
+            <Stack.Screen name="Camara" component={Camara} />
+            <Stack.Screen name="Movil" component={Movil} />
+            <Stack.Screen name="Contactos" component={Contactos} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
