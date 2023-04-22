@@ -34,14 +34,20 @@ export default function WelcomeScreen({ navigation }) {
         <Button
           mode="contained"
           style={styles.button}
-          onPress={() => navigation.navigate('Movil')}>
-          <Text style={styles.buttonText}>Información del móvil</Text>
+          onPress={() => navigation.navigate('Contactos')}>
+          <Text style={styles.buttonText}>Acceso a Contactos</Text>
         </Button>
         <Button
           mode="contained"
           style={styles.button}
-          onPress={() => navigation.navigate('Contactos')}>
-          <Text style={styles.buttonText}>Acceso a Contactos</Text>
+          onPress={() => navigation.navigate('Auth')}>
+          <Text style={styles.buttonText}>Autenticación local</Text>
+        </Button>
+        <Button
+          mode="contained"
+          style={styles.button}
+          onPress={() => navigation.navigate('Movil')}>
+          <Text style={styles.buttonText}>Información del móvil</Text>
         </Button>
       </View>
     </View>
