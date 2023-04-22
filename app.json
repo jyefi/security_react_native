@@ -2,13 +2,24 @@
   "expo": {
     "plugins": [
       [
-        "expo-media-library",
+        "expo-local-authentication",
         {
-          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
-          "isAccessMediaLocationEnabled": true
-        }
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
+        },
+        [
+          "expo-media-library",
+          {
+            "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+            "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+            "isAccessMediaLocationEnabled": true
+          }
+        ]
       ]
+    ],
+    "name": "expo security samples",
+    "slug": "sec_react_native",
+    "plugins": [
+
     ],
     "name": "security_react_native",
     "slug": "security_react_native",
@@ -25,7 +36,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Face ID is used to authenticate the user",
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
+      }
     },
     "android": {
       "adaptiveIcon": {

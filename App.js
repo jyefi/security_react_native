@@ -8,6 +8,7 @@ import Audio from './screens/Audio';
 import Movil from './screens/Movil';
 import Welcome from './screens/welcome';
 import Contactos from './screens/Contactos';
+import Auth from './screens/autentica-local'
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
             <Stack.Screen name="Camara" component={Camara} />
             <Stack.Screen name="Movil" component={Movil} />
             <Stack.Screen name="Contactos" component={Contactos} />
+            <Stack.Screen name="Auth" component={Auth} />
       </Stack.Navigator>
     </NavigationContainer>
   );
