@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Alert } from 'react-native';
 import {
   Button,
-  Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
 } from "react-native";
 import { Camera } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
-import * as Permissions from "expo-permissions";
-import * as ImagePicker from "expo-image-picker";
 
 const App = () => {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
