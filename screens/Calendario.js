@@ -7,7 +7,7 @@ import { Calendar as ExpoCalendar } from 'react-native-calendars';
 export default function CalendarScreen() {
   const [calendarPermission, setCalendarPermission] = useState(null);
   const [events, setEvents] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
     async function requestPermission() {
@@ -61,6 +61,9 @@ export default function CalendarScreen() {
     markedDates[dateString] = { marked: true };
   });
 
+  const formattedDate = selectedDate.toISOString().split('T')[0];
+  const initialMarkedDates = { [formattedDate]: { selected: true } };
+
   return (
     <View style={{ flex: 1 }}>
       <Text style={{ fontSize: 24, marginVertical: 16 }}>
@@ -68,7 +71,7 @@ export default function CalendarScreen() {
       </Text>
       {calendarPermission === 'granted' ? (
         <ExpoCalendar
-          markedDates={markedDates}
+          markedDates={{ ...initialMarkedDates, ...markedDates }}
           onDayPress={handleDayPress}
         />
       ) : (
