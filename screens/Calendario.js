@@ -67,7 +67,7 @@ export default function CalendarScreen() {
   return (
     <View style={{ flex: 1 }}>
       <Text style={{ fontSize: 24, marginVertical: 16 }}>
-        Calendar Example
+        Calendario
       </Text>
       {calendarPermission === 'granted' ? (
         <ExpoCalendar
@@ -75,7 +75,7 @@ export default function CalendarScreen() {
           onDayPress={handleDayPress}
         />
       ) : (
-        <Text>No calendar access</Text>
+        <Text>Acceso denegado al calendario</Text>
       )}
     </View>
   );
