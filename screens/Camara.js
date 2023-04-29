@@ -99,16 +99,16 @@ const App = () => {
   } else {
     return (
       <View style={styles.container}>
-        <Text style={styles.userNameText}>Hola, {userName}</Text>
+        {/* <Text style={styles.userNameText}>Hola, {userName}</Text> */}
         <Camera
           style={styles.camera}
           type={cameraType}
           ref={(ref) => setCameraRef(ref)}
         >
           <View style={styles.buttonContainer}>
-            <Button title="Switch Camera" onPress={switchCameraType} />
-            <Button title="Take Photo" onPress={takePhoto} />
-            <Button title="View Photos" onPress={openMediaLibrary} />
+            <Button title="Cambiar Camara" onPress={switchCameraType} />
+            <Button title="Tomar foto" onPress={takePhoto} />
+            {/* <Button title="View Photos" onPress={openMediaLibrary} /> */}
           </View>
         </Camera>
       </View>

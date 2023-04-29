@@ -7,12 +7,13 @@ export default function App() {
 
   async function startRecording() {
     try {
-      console.log('Requesting permissions..');
-      await Audio.requestPermissionsAsync();
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: true,
-        playsInSilentModeIOS: true,
-      });
+      const { granted } = await Audio.getPermissionsAsync();
+      if (!granted) {
+        Alert.alert('Permiso de audio no concedido', 'Debes conceder permiso de audio para grabar', [
+          { text: 'OK', onPress: () => requestPermission() },
+        ]);
+        return;
+      }
 
       console.log('Starting recording..');
       const { recording } = await Audio.Recording.createAsync(
@@ -22,6 +23,26 @@ export default function App() {
       console.log('Recording started');
     } catch (err) {
       console.error('Failed to start recording', err);
+    }
+  }
+
+  async function requestPermission() {
+    try {
+      console.log('Requesting permissions..');
+      const { granted } = await Audio.requestPermissionsAsync();
+      if (!granted) {
+        Alert.alert('Permiso de audio no concedido', 'Debes conceder permiso de audio para grabar', [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ]);
+        return;
+      }
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: true,
+        playsInSilentModeIOS: true,
+      });
+      startRecording();
+    } catch (err) {
+      console.error('Failed to request permissions', err);
     }
   }
 
@@ -43,7 +64,7 @@ export default function App() {
     <View style={styles.container}>
       <Button
         title={recording ? 'Stop Recording' : 'Start Recording'}
-        onPress={recording ? stopRecording : startRecording}
+        onPress={recording ? stopRecording : requestPermission}
       />
     </View>
   );

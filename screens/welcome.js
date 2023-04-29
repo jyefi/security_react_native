@@ -49,6 +49,18 @@ export default function WelcomeScreen({ navigation }) {
           onPress={() => navigation.navigate('Movil')}>
           <Text style={styles.buttonText}>Información del móvil</Text>
         </Button>
+        <Button
+          mode="contained"
+          style={styles.button}
+          onPress={() => navigation.navigate('Ubicacion')}>
+          <Text style={styles.buttonText}>Permiso de localización</Text>
+        </Button>
+        <Button
+          mode="contained"
+          style={styles.button}
+          onPress={() => navigation.navigate('Calendario')}>
+          <Text style={styles.buttonText}>Permiso al Calendario</Text>
+        </Button>
       </View>
     </View>
   );

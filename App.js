@@ -9,6 +9,8 @@ import Movil from './screens/Movil';
 import Welcome from './screens/welcome';
 import Contactos from './screens/Contactos';
 import Auth from './screens/autentica-local'
+import Ubicacion from './screens/Ubicacion';
+import Calendario from './screens/Calendario';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +25,8 @@ export default function App() {
             <Stack.Screen name="Movil" component={Movil} />
             <Stack.Screen name="Contactos" component={Contactos} />
             <Stack.Screen name="Auth" component={Auth} />
+            <Stack.Screen name="Ubicacion" component={Ubicacion} />
+            <Stack.Screen name="Calendario" component={Calendario} />
       </Stack.Navigator>
     </NavigationContainer>
   );
